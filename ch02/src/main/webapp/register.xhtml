@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+  <title>A Simple JavaServer Faces Registration Application</title>
+</h:head>
+<h:body>
+  <h:form id="form">
+    <h2>JSF Registration App</h2>
+    <h4>Registration Form</h4>
+    <table>
+      <tr>
+        <td>First Name:</td>
+        <td>
+          <h:inputText label="First Name" 
+                       id="fname" value="#{userBean.firstName}" 
+                       required="true"/>
+          <h:message for="fname" />
+        </td>
+      </tr>
+      <tr>
+        <td>Last Name:</td>
+        <td>
+          <h:inputText label="Last Name"
+                       id="lname" value="#{userBean.lastName}"
+                       required="true"/>
+          <h:message for="lname" />
+        </td>
+      </tr>
+      <tr>
+        <td>Sex:</td>
+        <td>
+          <h:selectOneRadio label="Sex" 
+                            id="sex" value="#{userBean.sex}" required="true">
+            <f:selectItem itemLabel="Male" itemValue="male" />
+            <f:selectItem itemLabel="Female" itemValue="female" />
+          </h:selectOneRadio>
+          <h:message for="sex" />
+        </td>
+      </tr>
+
+
+
+    </table>
+    <p><h:commandButton value="Register" actionListener="#{userBean.updateData}" /></p>
+  </h:form>
+  <p:dataTable var="car" value="#{tableData.data}">
+    <p:column headerText="Id">
+        <h:outputText value="#{car.id}" />
+    </p:column>
+ 
+    <p:column headerText="Year">
+        <h:outputText value="#{car.firstName}" />
+    </p:column>
+ 
+</p:dataTable>
+</h:body>
+</html>
